@@ -18,6 +18,20 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd-mobile",
+          "style": "css"
+        }
+      ]
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -34,5 +48,3 @@
     ]
   }
 }
-
-
