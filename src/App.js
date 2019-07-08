@@ -9,12 +9,14 @@ const actionCreator = { addGUN, removeGUN, addGunAsync }
 
 class App extends React.Component{
 	render(){
-		return <div>
-			<h1>现在有{this.props.num}</h1>
-			<button onClick = {this.props.addGUN}>再多一个</button>
-			<button onClick = {this.props.removeGUN}>少一个</button>
-			<button onClick = {this.props.addGunAsync}>拖两天再给</button>
-		</div>
+		return (
+			<div>
+				<h1>现在有{this.props.num.counter}</h1>
+				<button onClick = {this.props.addGUN}>再多一个</button>
+				<button onClick = {this.props.removeGUN}>少一个</button>
+				<button onClick = {this.props.addGunAsync}>拖两天再给</button>
+			</div>
+		)
 	}
 }
 

@@ -1,24 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { login } from './Auth.redux'
-
-connect()
+import { Redirect } from 'react-router-dom'
 
 class Auth extends React.Component{
-  constructor(props) {
-		super(props)
-	}
 	render(){
-		return <h2>Auth Page</h2>
+		return (
+			<div>
+				{ this.props.isAuth ? <Redirect to = '/dashboard' /> : null }
+				<h2>你没有权限，登录后才能查看</h2>
+				<button onClick = {this.props.login}>登录</button>
+			</div>
+		)
 	}
 }
 
-//两个reducers，每个reducs都有一个state
-//合并reducers
-const mapStatetoProps = (state) => {
-	return { num: state }
-}
-const actionCreator = { addGUN, removeGUN, addGunAsync }
-App = connect(mapStatetoProps, actionCreator)(App)
+Auth = connect(state => state.auth, {login})(Auth)
 
 export default Auth
