@@ -15,8 +15,8 @@ const User = mongoose.model('user', new mongoose.Schema({
 
 // 新增数据
 User.create({
-	user: 'xiaoming',
-	age: 20
+	user: 'test',
+	age: 26
 }, function(err, doc) {
 	if (!err) {
 		console.log(doc)
@@ -40,7 +40,7 @@ app.get("/",function(req,res){
 	res.send("<h1>Hello World</h1>")
 })
 app.get('/data',function(req,res){
-	User.findOne({user: 'xiaoming'}, function(err, doc){
+	User.findOne({user: 'test'}, function(err, doc){
 		res.json(doc)
 	})
 })
