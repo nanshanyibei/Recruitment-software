@@ -25,7 +25,7 @@ class AvatarSelector extends React.Component{
 					<Grid
 						data = {avatarList}
 						columnNum = {3}
-						onC lick = {elm => {
+						onClick = {elm => {
 							this.setState(elm)
 							this.props.selectAvatar(elm.text)
 						}}
