@@ -4,12 +4,13 @@ import { getRedirectPath } from '../util'
 const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
 const ERROR_MSG = 'ERROR_MSG'
 const LOGIN_SUCESS = 'LOGIN_SUCESS'
+const LOAD_DATA = "LOAD_DATA"
 
 const initState = {
+	redirectTo: '',
 	isAuth: "",
 	msg: "",
 	user: "",
-	pwd: "",
 	type: ""
 }
 
@@ -20,6 +21,8 @@ export function user(state = initState, action){
 			return {...state, msg: "", redirectTo: getRedirectPath(action.payload), isAuth: true, ...action.payload}
 		case LOGIN_SUCESS:
 			return {...state, msg: "", redirectTo: getRedirectPath(action.payload), isAuth: true, ...action.payload}
+		case LOAD_DATA:
+			return {...state, ...action.payload}
 		case ERROR_MSG:
 			return {...state, msg: action.msg, isAuth: false}
 		default:
@@ -37,6 +40,30 @@ function loginSuccess(data){
 
 function registerSuccess(data){
 	return {type: REGISTER_SUCCESS, payload: data}
+}
+
+export function loadData(userinfo){
+	return { type: LOAD_DATA, payload: userinfo }
+}
+
+export function userinfo(){
+	return dispatch => {
+		//获取用户信息
+		axios.get('/user/info')
+		.then(res => {
+			if (res.status === 200){
+				if(res.data.code === 0){
+					//有登录信息
+				} else {
+					this.props.loadData(res.data.data)
+					this.props.history.push('/login')
+				}
+			}
+		})
+		//是否登录，现在的url地址，login是不需要跳转的
+		// 用户的type 身份是boss还是牛人
+		//用户是否完善信息（选择头像，个人简介）
+	}
 }
 
 export function login({user, pwd}){
