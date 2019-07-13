@@ -7,10 +7,8 @@ import {
 } from 'react-router-dom'
 import NavLinkBar from './../navlink/navlink'
 import Boss from '../../component/boss/boss'
+import Genius from '../../component/genius/genius'
 
-function Genius(){
-	return <div>牛人首页</div>
-}
 function Msg(){
 	return <div>消息列表页面</div>
 }
