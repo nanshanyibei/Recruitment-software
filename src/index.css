@@ -2,3 +2,8 @@
 	color: #ff5500;
 	padding-left: 10px;
 }
+.nav-link-bar{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}

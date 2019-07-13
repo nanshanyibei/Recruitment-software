@@ -7,7 +7,6 @@ import {
 	BrowserRouter, 
 	Route, 
 	Switch,
-	Redirect
 } from 'react-router-dom'
 import reducers from './reducer'
 import './config'
@@ -17,12 +16,14 @@ import Register from './container/register/register';
 import AuthRoute from './component/authroute/authroute'
 import BossInfo from './container/bossinfo/bossinfo'
 import GeniusInfo from './container/geniusinfo/geniusinfo'
+import Dashboard from './component/dashborad/dashborad'
 
 const store = createStore(reducers, compose(
 	applyMiddleware(thunk),
 	window.devToolsExtension ? window.devToolsExtension() : f => f
 ))
 
+//boss genius me message 4个页面
 ReactDOM.render(
 	(<Provider store={store}>
 		<BrowserRouter>
@@ -33,6 +34,7 @@ ReactDOM.render(
 					<Route path = '/geniusinfo' component = {GeniusInfo}></Route>
 					<Route path = '/login' component = {Login}></Route>
 					<Route path = '/register' component = {Register}></Route>
+					<Route component = {Dashboard}></Route>
 				</Switch>
 			</div>
 		</BrowserRouter>
