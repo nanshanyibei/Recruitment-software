@@ -3,7 +3,6 @@ const utils = require('utility')
 const Router = express.Router()
 const model = require('./model')
 const User = model.getModel("user")
-const json = require('json')
 const _filter = {pwd: 0, __v: 0}
 
 Router.get('/list',function(req, res){
@@ -14,9 +13,10 @@ Router.get('/list',function(req, res){
 })
 
 Router.post('/update', function(req, res){
+	console.log(req.cookies)
 	const userid = req.cookies.userid
 	if(!userid){
-		return json.dumps({code: 1})
+		return res.json({code: 1})
 	}
 	const body = req.body
 	User.findByIdAndUpdate(userid, body, function(err, doc){
@@ -52,13 +52,13 @@ Router.post('/register', function(req, res){
 				return res.json({code: 1, msg: '后端出错了'})
 			}
 			const {user, type, _id} = doc
-			res.cookie('user', _id)
+			res.cookie('userid', _id)
 			return res.json({code: 0, data: {user, type, _id}})
 		})
 	})
 })
 
-Router.get('/info', function(req,res){
+Router.get('/info', function(req, res){
 	const {userid} = req.cookies
 	if(!userid){
 		return res.json({code: 1})

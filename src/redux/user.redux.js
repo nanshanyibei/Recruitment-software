@@ -58,6 +58,7 @@ export function userinfo(){
 }
 
 export function update(data){
+	console.log('在请求update之前传入的data',data)
 	return dispatch => {
 		axios.post('/user/update',data)
 			.then(res => {

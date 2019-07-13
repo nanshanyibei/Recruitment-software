@@ -8,7 +8,7 @@ import { update } from '../../redux/user.redux'
 @connect(
 	state => {
 		console.log('在geniusinfo页面时的state',state.user)
-		return state.user.user
+		return state.user
 	},
 	{ update }
 )
