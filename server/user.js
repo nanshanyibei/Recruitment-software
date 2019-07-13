@@ -3,6 +3,7 @@ const utils = require('utility')
 const Router = express.Router()
 const model = require('./model')
 const User = model.getModel("user")
+const json = require('json')
 const _filter = {pwd: 0, __v: 0}
 
 Router.get('/list',function(req, res){
