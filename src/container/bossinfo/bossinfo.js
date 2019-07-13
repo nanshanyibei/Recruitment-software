@@ -6,10 +6,7 @@ import { Redirect } from 'react-router-dom'
 import { update } from '../../redux/user.redux'
 
 @connect(
-	state => {
-		console.log(state.user)
-		return state.user
-	},
+	state => (state.user),
 	{ update }
 )
 

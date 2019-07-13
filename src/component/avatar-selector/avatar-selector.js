@@ -15,7 +15,7 @@ class AvatarSelector extends React.Component{
 		const avatarList = 'bigWhite,bird,boy,girl,lion'
 			.split(',')
 			.map(v => ({
-					icon: require(`../img/${v}.jpg`),
+					icon: require(`../img/${v}.png`),
 					text: v
 				}))
 		const gridHeader = this.state.icon ? 

@@ -7,7 +7,6 @@ import { update } from '../../redux/user.redux'
 
 @connect(
 	state => {
-		console.log('在geniusinfo页面时的state',state.user)
 		return state.user
 	},
 	{ update }
@@ -39,7 +38,6 @@ class GeniusInfo extends React.Component{
 				<NavBar mode = 'dark'>牛人完善信息页面</NavBar>
 				<AvatarSelector
 					selectAvatar = {(imgname) => {
-						console.log(imgname)
 						this.setState({
 							avatar: imgname
 						})

@@ -9,13 +9,13 @@ import NavLinkBar from './../navlink/navlink'
 import Boss from '../../component/boss/boss'
 
 function Genius(){
-	return <h2>牛人首页</h2>
+	return <div>牛人首页</div>
 }
 function Msg(){
-	return <h2>消息列表页面</h2>
+	return <div>消息列表页面</div>
 }
 function User(){
-	return <h2>个人中心</h2>
+	return <div>个人中心</div>
 }
 @connect(
 	state => state,
@@ -60,7 +60,7 @@ class Dashboard extends React.Component{
 		return (
 			<div>
 				<NavBar className = 'fixed-header' mode = 'dark'>{navList.find(v => v.path == pathname).title}</NavBar>
-				<div style = {{marginTop: -15}}>
+				<div>
 					<Switch>
 						{navList.map(v => (
 							<Route key = {v.path} path = {v.path} component = {v.component}></Route>
