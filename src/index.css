@@ -12,6 +12,10 @@
 	top: 0;
 	width: 100%;
 }
+.fixed-footer{
+	z-index: -1;
+	position: fixed;
+}
 .page-content{
 	padding: 45px 5px;
 }
@@ -30,4 +34,9 @@
 }
 .stick-footer{
 	z-index: 10;
+}
+.stick-footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }

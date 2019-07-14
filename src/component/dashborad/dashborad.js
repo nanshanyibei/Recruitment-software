@@ -63,7 +63,9 @@ class Dashboard extends React.Component{
 						))}
 					</Switch>
 				</div>
-				<NavLinkBar data = {navList}></NavLinkBar>
+				<div className = 'fixed-footer'>
+					<NavLinkBar data = {navList}></NavLinkBar>
+				</div>
 			</div>
 		)
 	}
