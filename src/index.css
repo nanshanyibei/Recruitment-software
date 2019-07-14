@@ -15,3 +15,6 @@
 .page-content{
 	padding: 45px 5px;
 }
+.am-tabs-pane-wrap{
+	z-index: 0;
+}

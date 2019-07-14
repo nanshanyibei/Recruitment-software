@@ -2,9 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Result, List, WhiteSpace, Button, Modal } from 'antd-mobile'
 import browserCookie from 'browser-cookies'
+import { logoutSubmit } from '../../redux/user.redux'
+import { Redirect } from 'react-router-dom'
 
 @connect(
-	state => state.user
+	state => state.user,
+	{ logoutSubmit }
 )
 class User extends React.Component{
 	constructor(props){
@@ -17,13 +20,13 @@ class User extends React.Component{
 			{ text: '取消', onPress: () => console.log('cancel')},
 			{ text: '确认', onPress: () => {
 				browserCookie.erase('userid')
-				window.location.href = window.location.href
+				this.props.logoutSubmit()
 			}}
 		])
-		// browserCookie.erase('userid')
 	}
 	render(){
 		const props = this.props
+		console.log(props)
 		return props.user ? (
 			<div>
 				<Result
@@ -40,10 +43,11 @@ class User extends React.Component{
 				</List>
 				<WhiteSpace/>
 				<List>
-					<List.Item onClick = {this.logout}>退出登陆</List.Item>
+					{/* zIndex是因为上面的组件会覆盖全部内容 */}
+					<List.Item style = {{zIndex: 1}} onClick = {this.logout}>退出登陆</List.Item>
 				</List>
 			</div>
-		) : null
+		) : <Redirect to = {this.props.redirectTo} />
 	}
 }
 

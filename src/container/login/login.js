@@ -5,6 +5,27 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { login } from '../../redux/user.redux'
 
+function WrapperHello(Comp){
+	class WrapComp extends React.Component{
+		render(){
+			return (
+				<div>
+					<p>这是HOC高阶组件中特有的元素</p>
+					<Comp {...this.props}></Comp>
+				</div>
+			)
+		}
+	}
+	return WrapComp
+}
+
+@WrapperHello
+class Hello extends React.Component{
+	render(){
+		return <div>hello imooc I love React and Redux</div>
+	}
+}
+
 @connect(
 	state => state.user,
 	{ login }
@@ -34,7 +55,8 @@ class Login extends React.Component{
 	render(){
 		return (
 			<div>
-				{this.props.redirectTo ? <Redirect to = {this.props.redirectTo} /> : null}
+				<Hello />
+				{this.props.redirectTo && this.props.redirectTo !== '/login' ? <Redirect to = {this.props.redirectTo} /> : null}
 				<Logo></Logo>
 				<WingBlank>
 					<List>
