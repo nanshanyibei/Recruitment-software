@@ -8,12 +8,10 @@ import {
 import NavLinkBar from './../navlink/navlink'
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
+import User from '../../component/user/user'
 
 function Msg(){
 	return <div>消息列表页面</div>
-}
-function User(){
-	return <div>个人中心</div>
 }
 @connect(
 	state => state,
@@ -57,7 +55,7 @@ class Dashboard extends React.Component{
 		]
 		return (
 			<div>
-				<NavBar className = 'fixed-header' mode = 'dark'>{navList.find(v => v.path == pathname).title}</NavBar>
+				<NavBar className = 'fixed-header' mode = 'dark'>{navList.find(v => v.path === pathname).title}</NavBar>
 				<div>
 					<Switch>
 						{navList.map(v => (
