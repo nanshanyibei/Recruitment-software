@@ -17,10 +17,21 @@ class Chat extends React.Component{
 			text: '',
 			msg: []
 		}
+		this.count = 0
 	}
 	componentDidMount(){
 		this.props.getMsgList()
 		this.props.recvMsg()
+	}
+	shouldComponentUpdate(state){
+		if(state.chat.chatmsg.length > this.count){
+			this.count = state.chat.chatmsg.length
+			return true
+		}	else if (this.state.text){
+			return true
+		} else {
+			return false
+		}
 	}
 	handleSubmit(){
 		const from = this.props.user._id
