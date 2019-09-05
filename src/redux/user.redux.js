@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getRedirectPath } from '../util'
+import urlPath from './urlPath'
 
 const ERROR_MSG = 'ERROR_MSG'
 const LOGOUT = 'LOGOUT'
@@ -48,7 +49,7 @@ export function logoutSubmit(){
 export function userinfo(){
 	return dispatch => {
 		//获取用户信息
-		axios.get('/user/info')
+		axios.get(urlPath + '/user/info')
 		.then(res => {
 			if (res.status === 200){
 				if(res.data.code === 0){
@@ -67,7 +68,7 @@ export function userinfo(){
 
 export function update(data){
 	return dispatch => {
-		axios.post('/user/update',data)
+		axios.post(urlPath + '/user/update',data)
 			.then(res => {
 				if(res.status === 200 && res.data.code === 0){
 					dispatch(authSuccess(res.data.data))
@@ -83,7 +84,7 @@ export function login({user, pwd}){
 		return errorMsg("用户密码必须输入")
 	}
 	return dispatch => {
-		axios.post('/user/login', {user, pwd})
+		axios.post(urlPath + '/user/login', {user, pwd})
 			.then(res => {
 				if(res.status === 200 && res.data.code === 0){
 					dispatch(authSuccess(res.data.data))
@@ -102,7 +103,7 @@ export function register({user, pwd, repeatpwd, type}){
 		return errorMsg("密码和确认密码不同")
 	}
 	return dispatch => {
-		axios.post("/user/register",{user,pwd,type})
+		axios.post(urlPath + "/user/register",{user,pwd,type})
 			.then(res => {
 				if(res.status === 200 && res.data.code === 0){
 					dispatch(authSuccess({user,pwd,type}))

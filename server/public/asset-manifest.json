@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "./static/css/main.d66e0067.chunk.css",
+    "main.js": "./static/js/main.b7f2f2e7.chunk.js",
+    "main.js.map": "./static/js/main.b7f2f2e7.chunk.js.map",
+    "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
+    "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
+    "static/css/2.d46c09ee.chunk.css": "./static/css/2.d46c09ee.chunk.css",
+    "static/js/2.1efcb23d.chunk.js": "./static/js/2.1efcb23d.chunk.js",
+    "static/js/2.1efcb23d.chunk.js.map": "./static/js/2.1efcb23d.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.601e1dfb43547e531645d992dd82d3d2.js": "./precache-manifest.601e1dfb43547e531645d992dd82d3d2.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.d46c09ee.chunk.css.map": "./static/css/2.d46c09ee.chunk.css.map",
+    "static/css/main.d66e0067.chunk.css.map": "./static/css/main.d66e0067.chunk.css.map",
+    "static/media/bird.png": "./static/media/bird.86e97b2b.png",
+    "static/media/job.png": "./static/media/job.1b472f11.png",
+    "static/media/lion.png": "./static/media/lion.b7d36e89.png"
+  }
+}

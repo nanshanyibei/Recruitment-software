@@ -1,4 +1,6 @@
 const express = require('express');
+const fs = require('fs')
+const path = require('path')
 const model = require('./model')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -23,6 +25,7 @@ io.on('connection', function(socket){
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use('/user', userRouter)
+app.use(express.static(path.join(__dirname, './public')))
 app.get("/",function(req,res){
 	res.send("<h1>Hello World</h1>")
 })

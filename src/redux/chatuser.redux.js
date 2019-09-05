@@ -1,4 +1,5 @@
 import axios from 'axios'
+import urlPath from './urlPath'
 
 const USER_LIST = 'USER_LIST'
 
@@ -21,7 +22,7 @@ function userList(data){
 
 export function getUserList(type){
 	return dispatch => {
-		axios.get(`/user/list?type=${type}`)
+		axios.get(`${urlPath}/user/list?type=${type}`)
 			.then(res => {
 				if(res.data.code === 0){
 					dispatch(userList(res.data.data))

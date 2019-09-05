@@ -3,6 +3,7 @@ import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { loadData } from '../../redux/user.redux'
 import { connect } from 'react-redux'
+import urlPath from '../../redux/urlPath'
 
 @withRouter
 @connect(
@@ -17,7 +18,7 @@ class AuthRoute extends React.Component{
 			return null
 		}
 		//获取用户信息
-		axios.get('/user/info')
+		axios.get(urlPath + '/user/info')
 			.then(res => {
 				if (res.status === 200){
 					if(res.data.code === 0){
